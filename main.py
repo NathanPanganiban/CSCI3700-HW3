@@ -1,4 +1,3 @@
-
 from flask import Flask, jsonify, render_template_string
 import psycopg2
 
@@ -7,26 +6,24 @@ app = Flask(__name__)
 def get_db_connection():
     conn = psycopg2.connect(
         dbname="baskets",
-        user="nathanp",
+        user="(myname)",
         password="test",
         host="localhost"
     )
     return conn
-
 
 @app.route('/api/update_basket_a', methods=['GET'])
 def update_basket_a():
     try:
         conn = get_db_connection()
         cur = conn.cursor()
-        cur.execute("INSERT INTO basket_a (a, fruit_a) VALUES (5, 'Cherry');")
+        cur.execute("INSERT INTO basket_a (a, fruit_a) VALUES (5, 'Cherry') ON CONFLICT (a) DO NOTHING;")
         conn.commit()
         cur.close()
         conn.close()
         return "Success!"
     except Exception as e:
         return f"Error: {e}"
-
 
 @app.route('/api/unique', methods=['GET'])
 def unique_fruits():
@@ -55,7 +52,7 @@ def unique_fruits():
                     <th>Unique Fruits in Basket B</th>
                 </tr>
                 <tr>
-                    <td><ul>{% for fruit in unique_a %}<li>{{ fruit }}</li>{% endfor %}</ul>< td>
+                    <td><ul>{% for fruit in unique_a %}<li>{{ fruit }}</li>{% endfor %}</ul></td>
                     <td><ul>{% for fruit in unique_b %}<li>{{ fruit }}</li>{% endfor %}</ul></td>
                 </tr>
             </table>
@@ -67,4 +64,5 @@ def unique_fruits():
         return f"Error: {e}"
 
 if __name__ == '__main__':
-	app.run(debug=True)
+    app.run(debug=True)
+
