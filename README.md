@@ -25,11 +25,6 @@ pip3 install psycopg2-binary
 sudo -u postgres psql
 
 
-## Create Database
-
-CREATE DATABASE baskets;
-
-
 ## Populate Database
 
 CREATE TABLE basket_a (
@@ -54,12 +49,6 @@ INSERT INTO basket_b (b, fruit_b) VALUES
     (3, 'Watermelon'),
     (4, 'Pear');
 
-
-## Create Role
-
-CREATE ROLE nathanp WITH PASSWORD test;
-
-GRANT ALL PRIVILEGES ON DATABASE baskets TO nathanp;
 
 
 ## Exit PostgreSQL
