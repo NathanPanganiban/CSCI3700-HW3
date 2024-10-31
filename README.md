@@ -80,3 +80,7 @@ http://127.0.0.1:5000/api/update_basket_a
 
 http://127.0.0.1:5000/api/unique
 
+## Photo Display of Unique Fruits in Table
+
+<img width="1440" alt="Screenshot 2024-10-31 at 10 23 02 AM" src="https://github.com/user-attachments/assets/8948c431-321b-47ac-b642-4ff483ce4edd">
+
