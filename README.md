@@ -15,9 +15,7 @@ cd CSCI3700-HW3
 
 ## Install Dependencies
 
-pip3 install Flask
-
-pip3 install psycopg2-binary
+pip3 install -r requirements.txt
 
 
 ## Enter PostgreSQL
